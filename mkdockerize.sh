@@ -11,7 +11,8 @@ elif [[ $1 == "produce" ]]; then
   fi
   cd $mkdocsProjectPath
   mkdocs build > /dev/null
-  tar -cz site
+  cd site
+  tar -cz *
   exit 0
 elif [[ $1 == "serve" ]]; then
   echo "Serve mkdocs"
