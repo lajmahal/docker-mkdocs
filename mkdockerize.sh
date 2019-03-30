@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
 
-if [[ $# -ne 1 ]]
-then
+if [[ $# -ne 1 ]]; then
   echo "Must supply exactly 1 argument"
   exit 1
-fi
-
-if [[ $1 == "produce" ]]
-then
+elif [[ $1 == "produce" ]]; then
   echo "Produce mkdocs tar.gz"
   exit 0
-elif [[ $1 == "serve" ]]
-then
+elif [[ $1 == "serve" ]]; then
   echo "Serve mkdocs"
   exit 0
 else
