@@ -15,10 +15,13 @@ elif [[ $1 == "produce" ]]; then
   cp -r docs site/
   cd site
   tar -cz *
-  exit 0
 elif [[ $1 == "serve" ]]; then
-  echo "Serve mkdocs"
-  exit 0
+  mkdir site
+  cd site
+  tar -zxf -
+  mv docs mkdocs.yml ../
+  cd ../
+  mkdocs serve -a 0.0.0.0:8000
 else
   echo "Invalid argument - must specify \"produce\" or \"serve\""
   exit 1
