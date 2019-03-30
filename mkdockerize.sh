@@ -11,6 +11,8 @@ elif [[ $1 == "produce" ]]; then
   fi
   cd $mkdocsProjectPath
   mkdocs build > /dev/null
+  cp mkdocs.yml site/
+  cp -r docs site/
   cd site
   tar -cz *
   exit 0
