@@ -5,11 +5,13 @@ if [[ $# -ne 1 ]]; then
   echo "Must supply exactly 1 argument"
   exit 1
 elif [[ $1 == "produce" ]]; then
-  echo "Produce tar.gz from $mkdocsProjectPath"
   if [[ ! -d $mkdocsProjectPath ]]; then
     echo "mkdocs project path ($mkdocsProjectPath) does not exist, has it been mounted correctly?"
     exit 1
   fi
+  cd $mkdocsProjectPath
+  mkdocs build > /dev/null
+  tar -cz site
   exit 0
 elif [[ $1 == "serve" ]]; then
   echo "Serve mkdocs"
