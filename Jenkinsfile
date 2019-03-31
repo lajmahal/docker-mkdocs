@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "docker build --rm . -t mkdocs"
+                echo "Building..."
             }
         }
         stage('test') {
