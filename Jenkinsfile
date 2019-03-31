@@ -9,7 +9,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                echo "Testing..."
+                sh test/mkdockerize_test.sh
             }
         }
     }
