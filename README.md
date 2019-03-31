@@ -94,3 +94,20 @@ STDIN respectively.
 
 It makes certain assumptions as to the structure of the mkdocs project itself. Some additional error-handling could 
 probably be done here as well as future improvements to handle invalid structures. 
+
+### Jenkinsfile
+This contains a bare minimum Jenkins pipeline with 'build' and 'test' stages, as per the requirement. It wasn't 
+clear what exactly these stages were supposed to do, though. 
+
+The 'build' stage currently just echoes something to stdout since there really isn't anything to "build" in this 
+project in the traditional sense. If this were a java project, for example, the build stage would invoke some 
+kind of build framework (e.g. maven or gradle) to compile the code, run unit-tests, etc. 
+
+The 'test' stage is where you could run more advanced or long-running tests (integration tests, smoke tests, 
+acceptance tests, etc). For the sake of example I've included another shell script that does some crude unit-testing
+of the mkdockerize.sh script. 
+
+Alternatively, the build stage could invoke the 'produce' and 'serve' functionality, while the test stage could access
+the served mkdocs via curl or other web testing framework. But this would only work if docker itself were installed
+on the Jenkins instance. In my case, the Jenkins instance I was testing on was running on docker already, so this 
+wasn't possible.
